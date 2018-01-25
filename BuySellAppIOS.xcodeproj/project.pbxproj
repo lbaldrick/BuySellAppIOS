@@ -1,0 +1,729 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A70BBBE12012560A00871D3C /* SubmitAccountDetailsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BBBE02012560A00871D3C /* SubmitAccountDetailsDelegate.swift */; };
+		A70BBBE42012582F00871D3C /* Rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BBBE32012582F00871D3C /* Rest.swift */; };
+		A70BBBE7201258F600871D3C /* AccountModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BBBE6201258F600871D3C /* AccountModelController.swift */; };
+		A70BBBEA20125A5D00871D3C /* AccountDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70BBBE920125A5D00871D3C /* AccountDetails.swift */; };
+		A71BC7F52011E60300AAE18B /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71BC7F42011E60300AAE18B /* LoginDelegate.swift */; };
+		A71BC7F72011E64700AAE18B /* CreateAccountDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71BC7F62011E64700AAE18B /* CreateAccountDelegate.swift */; };
+		A71BC7F92011E79400AAE18B /* CreateAccountUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71BC7F82011E79400AAE18B /* CreateAccountUIViewController.swift */; };
+		A71BC7FB2011F1A300AAE18B /* CreateAccountUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A71BC7FA2011F1A300AAE18B /* CreateAccountUIView.swift */; };
+		A742F4492015E29D0086DF79 /* CreateAccountRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A742F4482015E29D0086DF79 /* CreateAccountRequestDto.swift */; };
+		A742F44B2015EB700086DF79 /* CreateAccountResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A742F44A2015EB700086DF79 /* CreateAccountResponseDto.swift */; };
+		A76016402018CBBE005DD640 /* BuyItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A760163F2018CBBE005DD640 /* BuyItemTableViewCell.swift */; };
+		A774541A20176DB600096088 /* BuySellTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774541920176DB600096088 /* BuySellTabBarController.swift */; };
+		A774541E20176E7C00096088 /* SellUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774541D20176E7C00096088 /* SellUIViewController.swift */; };
+		A774542020176F3900096088 /* BuyModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774541F20176F3900096088 /* BuyModelController.swift */; };
+		A774542220176F5500096088 /* SellModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774542120176F5500096088 /* SellModelController.swift */; };
+		A77454262017710800096088 /* SellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77454252017710800096088 /* SellItem.swift */; };
+		A77454292017857300096088 /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77454282017857300096088 /* Condition.swift */; };
+		A774542B20179C5900096088 /* BuyOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774542A20179C5900096088 /* BuyOption.swift */; };
+		A774542D2017A01F00096088 /* SellUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774542C2017A01F00096088 /* SellUIView.swift */; };
+		A774542F2017A02E00096088 /* BuyNowUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A774542E2017A02E00096088 /* BuyNowUIView.swift */; };
+		A7A24C6320152DDF005CAF73 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A24C6220152DDF005CAF73 /* InputValidator.swift */; };
+		A7AA3A1A201A4055008F8823 /* BuyUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA3A19201A4055008F8823 /* BuyUIViewController.swift */; };
+		A7E3C0EA200FEB9E0001EC61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0E9200FEB9E0001EC61 /* AppDelegate.swift */; };
+		A7E3C0F1200FEB9E0001EC61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7E3C0F0200FEB9E0001EC61 /* Assets.xcassets */; };
+		A7E3C0F4200FEB9E0001EC61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7E3C0F2200FEB9E0001EC61 /* LaunchScreen.storyboard */; };
+		A7E3C0FF200FEB9E0001EC61 /* BuySellAppIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C0FE200FEB9E0001EC61 /* BuySellAppIOSTests.swift */; };
+		A7E3C10A200FEB9E0001EC61 /* BuySellAppIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C109200FEB9E0001EC61 /* BuySellAppIOSUITests.swift */; };
+		A7E3C11A200FEBDB0001EC61 /* LoginUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C119200FEBDB0001EC61 /* LoginUIView.swift */; };
+		A7E3C11C200FEC370001EC61 /* LoginUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E3C11B200FEC370001EC61 /* LoginUIViewController.swift */; };
+		A7E4D2502019DC4700F0C554 /* BuyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4D24F2019DC4700F0C554 /* BuyItem.swift */; };
+		A7E4D2522019E03200F0C554 /* BuyItemHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4D2512019E03200F0C554 /* BuyItemHistory.swift */; };
+		A7E4D2542019E46B00F0C554 /* BuyItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4D2532019E46B00F0C554 /* BuyItemTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A7E3C0FB200FEB9E0001EC61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7E3C0DE200FEB9D0001EC61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7E3C0E5200FEB9D0001EC61;
+			remoteInfo = BuySellAppIOS;
+		};
+		A7E3C106200FEB9E0001EC61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A7E3C0DE200FEB9D0001EC61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A7E3C0E5200FEB9D0001EC61;
+			remoteInfo = BuySellAppIOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A70BBBE02012560A00871D3C /* SubmitAccountDetailsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAccountDetailsDelegate.swift; sourceTree = "<group>"; };
+		A70BBBE32012582F00871D3C /* Rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rest.swift; sourceTree = "<group>"; };
+		A70BBBE6201258F600871D3C /* AccountModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModelController.swift; sourceTree = "<group>"; };
+		A70BBBE920125A5D00871D3C /* AccountDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetails.swift; sourceTree = "<group>"; };
+		A71BC7F42011E60300AAE18B /* LoginDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDelegate.swift; sourceTree = "<group>"; };
+		A71BC7F62011E64700AAE18B /* CreateAccountDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountDelegate.swift; sourceTree = "<group>"; };
+		A71BC7F82011E79400AAE18B /* CreateAccountUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountUIViewController.swift; sourceTree = "<group>"; };
+		A71BC7FA2011F1A300AAE18B /* CreateAccountUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountUIView.swift; sourceTree = "<group>"; };
+		A742F4482015E29D0086DF79 /* CreateAccountRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequestDto.swift; sourceTree = "<group>"; };
+		A742F44A2015EB700086DF79 /* CreateAccountResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountResponseDto.swift; sourceTree = "<group>"; };
+		A760163F2018CBBE005DD640 /* BuyItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemTableViewCell.swift; sourceTree = "<group>"; };
+		A774541920176DB600096088 /* BuySellTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySellTabBarController.swift; sourceTree = "<group>"; };
+		A774541D20176E7C00096088 /* SellUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellUIViewController.swift; sourceTree = "<group>"; };
+		A774541F20176F3900096088 /* BuyModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyModelController.swift; sourceTree = "<group>"; };
+		A774542120176F5500096088 /* SellModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellModelController.swift; sourceTree = "<group>"; };
+		A77454252017710800096088 /* SellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellItem.swift; sourceTree = "<group>"; };
+		A77454282017857300096088 /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
+		A774542A20179C5900096088 /* BuyOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyOption.swift; sourceTree = "<group>"; };
+		A774542C2017A01F00096088 /* SellUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellUIView.swift; sourceTree = "<group>"; };
+		A774542E2017A02E00096088 /* BuyNowUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowUIView.swift; sourceTree = "<group>"; };
+		A7A24C6220152DDF005CAF73 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
+		A7AA3A19201A4055008F8823 /* BuyUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyUIViewController.swift; sourceTree = "<group>"; };
+		A7E3C0E6200FEB9D0001EC61 /* BuySellAppIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuySellAppIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E3C0E9200FEB9E0001EC61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A7E3C0F0200FEB9E0001EC61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7E3C0F3200FEB9E0001EC61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A7E3C0F5200FEB9E0001EC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7E3C0FA200FEB9E0001EC61 /* BuySellAppIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuySellAppIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E3C0FE200FEB9E0001EC61 /* BuySellAppIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySellAppIOSTests.swift; sourceTree = "<group>"; };
+		A7E3C100200FEB9E0001EC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7E3C105200FEB9E0001EC61 /* BuySellAppIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuySellAppIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E3C109200FEB9E0001EC61 /* BuySellAppIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuySellAppIOSUITests.swift; sourceTree = "<group>"; };
+		A7E3C10B200FEB9E0001EC61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7E3C119200FEBDB0001EC61 /* LoginUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIView.swift; sourceTree = "<group>"; };
+		A7E3C11B200FEC370001EC61 /* LoginUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUIViewController.swift; sourceTree = "<group>"; };
+		A7E4D24F2019DC4700F0C554 /* BuyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItem.swift; sourceTree = "<group>"; };
+		A7E4D2512019E03200F0C554 /* BuyItemHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemHistory.swift; sourceTree = "<group>"; };
+		A7E4D2532019E46B00F0C554 /* BuyItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7E3C0E3200FEB9D0001EC61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E3C0F7200FEB9E0001EC61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E3C102200FEB9E0001EC61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A70BBBE22012581B00871D3C /* clients */ = {
+			isa = PBXGroup;
+			children = (
+				A70BBBE32012582F00871D3C /* Rest.swift */,
+			);
+			path = clients;
+			sourceTree = "<group>";
+		};
+		A70BBBE5201258D300871D3C /* modelcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				A70BBBE6201258F600871D3C /* AccountModelController.swift */,
+				A774541F20176F3900096088 /* BuyModelController.swift */,
+				A774542120176F5500096088 /* SellModelController.swift */,
+			);
+			path = modelcontrollers;
+			sourceTree = "<group>";
+		};
+		A70BBBE820125A4E00871D3C /* models */ = {
+			isa = PBXGroup;
+			children = (
+				A70BBBE920125A5D00871D3C /* AccountDetails.swift */,
+				A77454252017710800096088 /* SellItem.swift */,
+				A7E4D24F2019DC4700F0C554 /* BuyItem.swift */,
+				A7E4D2512019E03200F0C554 /* BuyItemHistory.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		A70BBBEB20125F3A00871D3C /* dtos */ = {
+			isa = PBXGroup;
+			children = (
+				A742F4482015E29D0086DF79 /* CreateAccountRequestDto.swift */,
+				A742F44A2015EB700086DF79 /* CreateAccountResponseDto.swift */,
+			);
+			path = dtos;
+			sourceTree = "<group>";
+		};
+		A71BC7F32011E5E000AAE18B /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				A71BC7F42011E60300AAE18B /* LoginDelegate.swift */,
+				A71BC7F62011E64700AAE18B /* CreateAccountDelegate.swift */,
+				A70BBBE02012560A00871D3C /* SubmitAccountDetailsDelegate.swift */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		A760163E2018CB7C005DD640 /* tablecells */ = {
+			isa = PBXGroup;
+			children = (
+				A760163F2018CBBE005DD640 /* BuyItemTableViewCell.swift */,
+			);
+			path = tablecells;
+			sourceTree = "<group>";
+		};
+		A77454272017846F00096088 /* enums */ = {
+			isa = PBXGroup;
+			children = (
+				A77454282017857300096088 /* Condition.swift */,
+				A774542A20179C5900096088 /* BuyOption.swift */,
+			);
+			path = enums;
+			sourceTree = "<group>";
+		};
+		A7A24C6120152DBA005CAF73 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				A7A24C6220152DDF005CAF73 /* InputValidator.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		A7E3C0DD200FEB9D0001EC61 = {
+			isa = PBXGroup;
+			children = (
+				A7E3C0E8200FEB9E0001EC61 /* BuySellAppIOS */,
+				A7E3C0FD200FEB9E0001EC61 /* BuySellAppIOSTests */,
+				A7E3C108200FEB9E0001EC61 /* BuySellAppIOSUITests */,
+				A7E3C0E7200FEB9D0001EC61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7E3C0E7200FEB9D0001EC61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3C0E6200FEB9D0001EC61 /* BuySellAppIOS.app */,
+				A7E3C0FA200FEB9E0001EC61 /* BuySellAppIOSTests.xctest */,
+				A7E3C105200FEB9E0001EC61 /* BuySellAppIOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7E3C0E8200FEB9E0001EC61 /* BuySellAppIOS */ = {
+			isa = PBXGroup;
+			children = (
+				A760163E2018CB7C005DD640 /* tablecells */,
+				A77454272017846F00096088 /* enums */,
+				A7A24C6120152DBA005CAF73 /* utils */,
+				A70BBBEB20125F3A00871D3C /* dtos */,
+				A70BBBE820125A4E00871D3C /* models */,
+				A70BBBE5201258D300871D3C /* modelcontrollers */,
+				A70BBBE22012581B00871D3C /* clients */,
+				A71BC7F32011E5E000AAE18B /* delegates */,
+				A7E3C118200FEBBF0001EC61 /* views */,
+				A7E3C117200FEBB60001EC61 /* controllers */,
+				A7E3C0E9200FEB9E0001EC61 /* AppDelegate.swift */,
+				A7E3C0F0200FEB9E0001EC61 /* Assets.xcassets */,
+				A7E3C0F2200FEB9E0001EC61 /* LaunchScreen.storyboard */,
+				A7E3C0F5200FEB9E0001EC61 /* Info.plist */,
+			);
+			path = BuySellAppIOS;
+			sourceTree = "<group>";
+		};
+		A7E3C0FD200FEB9E0001EC61 /* BuySellAppIOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3C0FE200FEB9E0001EC61 /* BuySellAppIOSTests.swift */,
+				A7E3C100200FEB9E0001EC61 /* Info.plist */,
+			);
+			path = BuySellAppIOSTests;
+			sourceTree = "<group>";
+		};
+		A7E3C108200FEB9E0001EC61 /* BuySellAppIOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3C109200FEB9E0001EC61 /* BuySellAppIOSUITests.swift */,
+				A7E3C10B200FEB9E0001EC61 /* Info.plist */,
+			);
+			path = BuySellAppIOSUITests;
+			sourceTree = "<group>";
+		};
+		A7E3C117200FEBB60001EC61 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3C11B200FEC370001EC61 /* LoginUIViewController.swift */,
+				A71BC7F82011E79400AAE18B /* CreateAccountUIViewController.swift */,
+				A774541920176DB600096088 /* BuySellTabBarController.swift */,
+				A774541D20176E7C00096088 /* SellUIViewController.swift */,
+				A7E4D2532019E46B00F0C554 /* BuyItemTableViewController.swift */,
+				A7AA3A19201A4055008F8823 /* BuyUIViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		A7E3C118200FEBBF0001EC61 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				A7E3C119200FEBDB0001EC61 /* LoginUIView.swift */,
+				A71BC7FA2011F1A300AAE18B /* CreateAccountUIView.swift */,
+				A774542C2017A01F00096088 /* SellUIView.swift */,
+				A774542E2017A02E00096088 /* BuyNowUIView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7E3C0E5200FEB9D0001EC61 /* BuySellAppIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7E3C10E200FEB9E0001EC61 /* Build configuration list for PBXNativeTarget "BuySellAppIOS" */;
+			buildPhases = (
+				A7E3C0E2200FEB9D0001EC61 /* Sources */,
+				A7E3C0E3200FEB9D0001EC61 /* Frameworks */,
+				A7E3C0E4200FEB9D0001EC61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BuySellAppIOS;
+			productName = BuySellAppIOS;
+			productReference = A7E3C0E6200FEB9D0001EC61 /* BuySellAppIOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A7E3C0F9200FEB9E0001EC61 /* BuySellAppIOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7E3C111200FEB9E0001EC61 /* Build configuration list for PBXNativeTarget "BuySellAppIOSTests" */;
+			buildPhases = (
+				A7E3C0F6200FEB9E0001EC61 /* Sources */,
+				A7E3C0F7200FEB9E0001EC61 /* Frameworks */,
+				A7E3C0F8200FEB9E0001EC61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7E3C0FC200FEB9E0001EC61 /* PBXTargetDependency */,
+			);
+			name = BuySellAppIOSTests;
+			productName = BuySellAppIOSTests;
+			productReference = A7E3C0FA200FEB9E0001EC61 /* BuySellAppIOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A7E3C104200FEB9E0001EC61 /* BuySellAppIOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7E3C114200FEB9E0001EC61 /* Build configuration list for PBXNativeTarget "BuySellAppIOSUITests" */;
+			buildPhases = (
+				A7E3C101200FEB9E0001EC61 /* Sources */,
+				A7E3C102200FEB9E0001EC61 /* Frameworks */,
+				A7E3C103200FEB9E0001EC61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A7E3C107200FEB9E0001EC61 /* PBXTargetDependency */,
+			);
+			name = BuySellAppIOSUITests;
+			productName = BuySellAppIOSUITests;
+			productReference = A7E3C105200FEB9E0001EC61 /* BuySellAppIOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7E3C0DE200FEB9D0001EC61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Michael Lee Baldrick";
+				TargetAttributes = {
+					A7E3C0E5200FEB9D0001EC61 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					A7E3C0F9200FEB9E0001EC61 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A7E3C0E5200FEB9D0001EC61;
+					};
+					A7E3C104200FEB9E0001EC61 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A7E3C0E5200FEB9D0001EC61;
+					};
+				};
+			};
+			buildConfigurationList = A7E3C0E1200FEB9D0001EC61 /* Build configuration list for PBXProject "BuySellAppIOS" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A7E3C0DD200FEB9D0001EC61;
+			productRefGroup = A7E3C0E7200FEB9D0001EC61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7E3C0E5200FEB9D0001EC61 /* BuySellAppIOS */,
+				A7E3C0F9200FEB9E0001EC61 /* BuySellAppIOSTests */,
+				A7E3C104200FEB9E0001EC61 /* BuySellAppIOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7E3C0E4200FEB9D0001EC61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E3C0F4200FEB9E0001EC61 /* LaunchScreen.storyboard in Resources */,
+				A7E3C0F1200FEB9E0001EC61 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E3C0F8200FEB9E0001EC61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E3C103200FEB9E0001EC61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7E3C0E2200FEB9D0001EC61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A71BC7F92011E79400AAE18B /* CreateAccountUIViewController.swift in Sources */,
+				A7AA3A1A201A4055008F8823 /* BuyUIViewController.swift in Sources */,
+				A774542B20179C5900096088 /* BuyOption.swift in Sources */,
+				A7A24C6320152DDF005CAF73 /* InputValidator.swift in Sources */,
+				A70BBBEA20125A5D00871D3C /* AccountDetails.swift in Sources */,
+				A7E4D2502019DC4700F0C554 /* BuyItem.swift in Sources */,
+				A774541E20176E7C00096088 /* SellUIViewController.swift in Sources */,
+				A7E4D2542019E46B00F0C554 /* BuyItemTableViewController.swift in Sources */,
+				A7E3C11C200FEC370001EC61 /* LoginUIViewController.swift in Sources */,
+				A7E4D2522019E03200F0C554 /* BuyItemHistory.swift in Sources */,
+				A7E3C11A200FEBDB0001EC61 /* LoginUIView.swift in Sources */,
+				A70BBBE42012582F00871D3C /* Rest.swift in Sources */,
+				A70BBBE12012560A00871D3C /* SubmitAccountDetailsDelegate.swift in Sources */,
+				A70BBBE7201258F600871D3C /* AccountModelController.swift in Sources */,
+				A774542F2017A02E00096088 /* BuyNowUIView.swift in Sources */,
+				A71BC7FB2011F1A300AAE18B /* CreateAccountUIView.swift in Sources */,
+				A77454292017857300096088 /* Condition.swift in Sources */,
+				A71BC7F72011E64700AAE18B /* CreateAccountDelegate.swift in Sources */,
+				A774541A20176DB600096088 /* BuySellTabBarController.swift in Sources */,
+				A774542220176F5500096088 /* SellModelController.swift in Sources */,
+				A71BC7F52011E60300AAE18B /* LoginDelegate.swift in Sources */,
+				A774542D2017A01F00096088 /* SellUIView.swift in Sources */,
+				A774542020176F3900096088 /* BuyModelController.swift in Sources */,
+				A77454262017710800096088 /* SellItem.swift in Sources */,
+				A7E3C0EA200FEB9E0001EC61 /* AppDelegate.swift in Sources */,
+				A76016402018CBBE005DD640 /* BuyItemTableViewCell.swift in Sources */,
+				A742F44B2015EB700086DF79 /* CreateAccountResponseDto.swift in Sources */,
+				A742F4492015E29D0086DF79 /* CreateAccountRequestDto.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E3C0F6200FEB9E0001EC61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E3C0FF200FEB9E0001EC61 /* BuySellAppIOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7E3C101200FEB9E0001EC61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7E3C10A200FEB9E0001EC61 /* BuySellAppIOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A7E3C0FC200FEB9E0001EC61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7E3C0E5200FEB9D0001EC61 /* BuySellAppIOS */;
+			targetProxy = A7E3C0FB200FEB9E0001EC61 /* PBXContainerItemProxy */;
+		};
+		A7E3C107200FEB9E0001EC61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A7E3C0E5200FEB9D0001EC61 /* BuySellAppIOS */;
+			targetProxy = A7E3C106200FEB9E0001EC61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A7E3C0F2200FEB9E0001EC61 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7E3C0F3200FEB9E0001EC61 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7E3C10C200FEB9E0001EC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A7E3C10D200FEB9E0001EC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7E3C10F200FEB9E0001EC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BuySellAppIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baldrick.BuySellAppIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A7E3C110200FEB9E0001EC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BuySellAppIOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baldrick.BuySellAppIOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A7E3C112200FEB9E0001EC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BuySellAppIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baldrick.BuySellAppIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuySellAppIOS.app/BuySellAppIOS";
+			};
+			name = Debug;
+		};
+		A7E3C113200FEB9E0001EC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BuySellAppIOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baldrick.BuySellAppIOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BuySellAppIOS.app/BuySellAppIOS";
+			};
+			name = Release;
+		};
+		A7E3C115200FEB9E0001EC61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BuySellAppIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baldrick.BuySellAppIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BuySellAppIOS;
+			};
+			name = Debug;
+		};
+		A7E3C116200FEB9E0001EC61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BuySellAppIOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.baldrick.BuySellAppIOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BuySellAppIOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7E3C0E1200FEB9D0001EC61 /* Build configuration list for PBXProject "BuySellAppIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E3C10C200FEB9E0001EC61 /* Debug */,
+				A7E3C10D200FEB9E0001EC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7E3C10E200FEB9E0001EC61 /* Build configuration list for PBXNativeTarget "BuySellAppIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E3C10F200FEB9E0001EC61 /* Debug */,
+				A7E3C110200FEB9E0001EC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7E3C111200FEB9E0001EC61 /* Build configuration list for PBXNativeTarget "BuySellAppIOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E3C112200FEB9E0001EC61 /* Debug */,
+				A7E3C113200FEB9E0001EC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7E3C114200FEB9E0001EC61 /* Build configuration list for PBXNativeTarget "BuySellAppIOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7E3C115200FEB9E0001EC61 /* Debug */,
+				A7E3C116200FEB9E0001EC61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7E3C0DE200FEB9D0001EC61 /* Project object */;
+}
