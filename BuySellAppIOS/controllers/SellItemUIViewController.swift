@@ -12,12 +12,14 @@ class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UI
     
     var sellView: SellItemUIView!
     var accountModelController: AccountModelController!
-
+    let picker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sellView = SellItemUIView(frame: CGRect.zero)
         sellView.selectImageDelegate = self
         self.view.addSubview(sellView)
+        picker.delegate = self
         setupConstraints()
     }
 
@@ -67,18 +69,22 @@ class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UI
     
     func selectImage() {
         print("select image")
-        let myPickerController = UIImagePickerController()
-        myPickerController.delegate = self;
-        myPickerController.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        self.present(myPickerController, animated: true, completion: nil)
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(picker, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
-        self.dismiss(animated: true, completion: { () -> Void in
-            
-        })
-        
-        sellView.imageView.image = image
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
-
+    
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage  {
+            sellView.imageView.contentMode = .scaleAspectFit
+            sellView.imageView.image = chosenImage
+        }
+    
+        dismiss(animated:true, completion: nil)
+    }
 }

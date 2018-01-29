@@ -261,7 +261,7 @@ class SellItemUIView: UIView {
         self.itemDescriptionValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         
         self.conditionLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.conditionLbl.topAnchor.constraint(equalTo: self.itemDescriptionTxtView.topAnchor, constant: 35).isActive = true
+        self.conditionLbl.topAnchor.constraint(equalTo: self.itemDescriptionTxtView.bottomAnchor, constant: 35).isActive = true
         self.conditionLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         self.conditionLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.conditionLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
@@ -345,16 +345,16 @@ class SellItemUIView: UIView {
         self.buyNowPriceValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         
         self.addImagesBtn.translatesAutoresizingMaskIntoConstraints = false
-        self.addImagesBtn.topAnchor.constraint(equalTo: buyNowPriceTxtField.bottomAnchor, constant: 35).isActive = true
-        self.addImagesBtn.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        self.addImagesBtn.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 20).isActive = true
+        self.addImagesBtn.topAnchor.constraint(equalTo: buyNowPriceTxtField.bottomAnchor, constant: 15).isActive = true
+        self.addImagesBtn.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        self.addImagesBtn.widthAnchor.constraint(equalToConstant: 100).isActive = true
         self.addImagesBtn.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView.topAnchor.constraint(equalTo: addImagesBtn.bottomAnchor, constant: 35).isActive = true
-        self.imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        self.imageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 20).isActive = true
-        self.imageView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.imageView.topAnchor.constraint(equalTo: buyNowPriceTxtField.bottomAnchor, constant: 5).isActive = true
+        self.imageView.leftAnchor.constraint(equalTo: addImagesBtn.rightAnchor, constant: 5).isActive = true
+        self.imageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.imageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         self.submitBtn.translatesAutoresizingMaskIntoConstraints = false
         self.submitBtn.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25).isActive = true
