@@ -1,5 +1,5 @@
 //
-//  BuyItemTableViewCell.swift
+//  BrowseItemTableViewCell.swift
 //  BuySellAppIOS
 //
 //  Created by Michael Lee Baldrick on 24/01/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BuyItemTableViewCell: UITableViewCell {
+class BrowseItemTableViewCell: UITableViewCell {
     
     var itemImageView: UIImageView!
     var titleLbl: UILabel!
@@ -22,6 +22,8 @@ class BuyItemTableViewCell: UITableViewCell {
     var condition: Condition?
     var buyOption: BuyOption?
     var itemDescription: String?
+    
+    var delegate: OpenBuyItemDetails?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -60,8 +62,10 @@ class BuyItemTableViewCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        if (selected == true) {
+            print("buy itme selected")
+            delegate?.openBuyItemDetails(buyItem: BuyItem(id: "id", sellerUsername: "joeBloggs", title: "NBA Jam Snes", description: "Tested and works fine. Message me for more details. Check out my other items", condition: Condition.ACCEPTABLE, images: [], currentBid: 0.0, endDateTime: Date(), minimumPrice: 22.00, buyOption: BuyOption.BUY_NOW))
+        }
     }
 
 }

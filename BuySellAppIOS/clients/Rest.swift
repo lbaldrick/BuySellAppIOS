@@ -32,7 +32,9 @@ class Rest {
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data else {
                     print("ERROR: Problem fetching data - \(error!)")
-                    completion(nil)
+                    DispatchQueue.main.async {
+                         completion(nil)
+                    }
                     return
                 }
                 

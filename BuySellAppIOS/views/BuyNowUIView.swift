@@ -8,8 +8,9 @@
 
 import UIKit
 
-class BuyUIView: UIView {
-
+class BuyNowUIView: UIView {
+    
+    var imageView: UIImageView!
     var sellerUsernameLbl: UILabel!
     var titleLbl: UILabel!
     var itemDescriptionLbl: UILabel!
@@ -29,7 +30,11 @@ class BuyUIView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.lightGray
+        self.backgroundColor = UIColor(red:0.00, green:0.45, blue:0.74, alpha:1.0)
+        
+        imageView = UIImageView(frame:  CGRect(x: 0, y: 0, width: 300, height: 300))
+        imageView.backgroundColor = UIColor.black
+        self.addSubview(imageView)
         
         sellerUsernameLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
         sellerUsernameLbl.backgroundColor = UIColor.lightGray
@@ -68,8 +73,18 @@ class BuyUIView: UIView {
         
         conditionValueLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
         conditionValueLbl.backgroundColor = UIColor.white
-        itemDescriptionValueLbl.textColor = UIColor.darkGray
+        conditionValueLbl.textColor = UIColor.darkGray
         self.addSubview(conditionValueLbl)
+        
+        buyingOptionLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
+        buyingOptionLbl.backgroundColor = UIColor.lightGray
+        buyingOptionLbl.text = "Buying Option:"
+        self.addSubview(buyingOptionLbl)
+        
+        buyingOptionValueLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
+        buyingOptionValueLbl.backgroundColor = UIColor.white
+        buyingOptionValueLbl.textColor = UIColor.darkGray
+        self.addSubview(buyingOptionValueLbl)
         
         endDateTimeLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
         endDateTimeLbl.backgroundColor = UIColor.lightGray
@@ -90,8 +105,6 @@ class BuyUIView: UIView {
         priceValueLbl.backgroundColor = UIColor.white
         priceValueLbl.textColor = UIColor.darkGray
         self.addSubview(priceValueLbl)
-        
-        
         
         buyNowBtn = UIButton(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
         buyNowBtn.isEnabled = true

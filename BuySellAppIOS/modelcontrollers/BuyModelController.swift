@@ -10,5 +10,6 @@ import Foundation
 
 
 class BuyModelController {
+    var accountModelContoller: AccountModelController?
     
 }

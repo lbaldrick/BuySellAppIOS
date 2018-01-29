@@ -1,5 +1,5 @@
 //
-//  BuyUIViewController.swift
+//  BuyNavigationController.swift
 //  BuySellAppIOS
 //
 //  Created by Michael Lee Baldrick on 25/01/2018.
@@ -8,23 +8,35 @@
 
 import UIKit
 
-class BuyUIViewController: UIViewController {
+class BrowseNavigationController: UINavigationController, OpenBuyItemDetails {
     
-    var buyItemTableViewController: BuyItemTableViewController!
     var accountModelController: AccountModelController!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        buyItemTableViewController = BuyItemTableViewController()
-        view.addSubview(buyItemTableViewController.view)
-
+        let browseUIViewController: BrowseUIViewController = BrowseUIViewController()
+        browseUIViewController.accountModelController =  accountModelController
+        pushViewController(browseUIViewController, animated: false)
         // Do any additional setup after loading the view.
+        
+       
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func openBuyItemDetails(buyItem: BuyItem) {
+        let buyNowUIViewController = BuyNowUIViewController()
+        buyNowUIViewController.buyItem = buyItem
+        print("Opening buy now view controller")
+        
+        pushViewController(buyNowUIViewController , animated: false)
+    }
+    
     
 
     /*

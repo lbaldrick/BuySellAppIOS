@@ -6,27 +6,27 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/views/CreateAccountUIView.swift"
-            timestampString = "538340277.008"
+            timestampString = "538945045.637104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "onSubmitBtnPressed()"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "BuySellAppIOS.CreateAccountUIView.onSubmitBtnPressed() -&gt; ()"
                   moduleName = "BuySellAppIOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michaelbaldrick/Dev/Git/BuySellAppIOS/BuySellAppIOS/views/CreateAccountUIView.swift"
-                  timestampString = "538591843.890337"
+                  timestampString = "538672301.154886"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -34,14 +34,14 @@
                   offsetFromSymbolStart = "4665">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "implicit closure #6 : @autoclosure () throws -&gt; Swift.String in BuySellAppIOS.CreateAccountUIView.onSubmitBtnPressed() -&gt; ()"
                   moduleName = "BuySellAppIOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michaelbaldrick/Dev/Git/BuySellAppIOS/BuySellAppIOS/views/CreateAccountUIView.swift"
-                  timestampString = "538591843.892265"
+                  timestampString = "538672301.157905"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -54,15 +54,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/views/CreateAccountUIView.swift"
-            timestampString = "538340277.008054"
+            timestampString = "538945045.637158"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "onSubmitBtnPressed()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,76 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/modelcontrollers/AccountModelController.swift"
-            timestampString = "538424536.9199899"
+            timestampString = "538944781.1051461"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "createAccountDetails(firstName:lastName:username:password:confPassword:dateOfBirth:email:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuySellAppIOS/modelcontrollers/AccountModelController.swift"
-            timestampString = "538424536.920072"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "createAccountDetails(firstName:lastName:username:password:confPassword:dateOfBirth:email:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BuySellAppIOS.AccountModelController.createAccountDetails(firstName: Swift.String, lastName: Swift.String, username: Swift.String, password: Swift.String, confPassword: Swift.String, dateOfBirth: Foundation.Date, email: Swift.String) -&gt; ()"
-                  moduleName = "BuySellAppIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michaelbaldrick/Dev/Git/BuySellAppIOS/BuySellAppIOS/modelcontrollers/AccountModelController.swift"
-                  timestampString = "538398836.7768281"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "681">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;) -&gt; () in BuySellAppIOS.AccountModelController.createAccountDetails(firstName: Swift.String, lastName: Swift.String, username: Swift.String, password: Swift.String, confPassword: Swift.String, dateOfBirth: Foundation.Date, email: Swift.String) -&gt; ()"
-                  moduleName = "BuySellAppIOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michaelbaldrick/Dev/Git/BuySellAppIOS/BuySellAppIOS/modelcontrollers/AccountModelController.swift"
-                  timestampString = "538398836.77952"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "37">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BuySellAppIOS/modelcontrollers/AccountModelController.swift"
-            timestampString = "538424536.920114"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "createAccountDetails(firstName:lastName:username:password:confPassword:dateOfBirth:email:)"
+            landmarkName = "createAccountDetails(firstName:lastName:username:password:confPassword:dateOfBirth:email:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -170,13 +106,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/clients/Rest.swift"
-            timestampString = "538424536.920156"
+            timestampString = "538822339.114095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
             endingLineNumber = "33"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "makeRequest(request:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,13 +122,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/clients/Rest.swift"
-            timestampString = "538424536.9204741"
+            timestampString = "538822339.114134"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "makeRequest(request:completion:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,13 +138,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/clients/Rest.swift"
-            timestampString = "538424536.920658"
+            timestampString = "538822339.114168"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "post(url:body:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuySellAppIOS/views/SellItemUIView.swift"
+            timestampString = "538945045.637275"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "onAddImagesBtnPressed()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

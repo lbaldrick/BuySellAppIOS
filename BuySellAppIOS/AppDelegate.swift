@@ -15,8 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let restClient = Rest()
-        
+
         // Initialize the window
         window = UIWindow(frame: UIScreen.main.bounds)
         
@@ -25,11 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Allocate memory for an instance of the 'MainViewController' class
         let loginViewController = LoginUIViewController()
-        loginViewController.restClient = restClient
+        loginViewController.accountModelController = AccountModelController()
         
         let navigationController = UINavigationController(rootViewController: loginViewController)
         
         navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barTintColor = UIColor(red:0.00, green:0.45, blue:0.74, alpha:1.0)
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         
         window?.rootViewController = navigationController
         
