@@ -22,7 +22,7 @@ class SellItemViewModel {
         }
     }
     
-    var condition: Condition
+    var condition: String
     
     var images: [Data] {
         didSet {
@@ -30,28 +30,24 @@ class SellItemViewModel {
         }
     }
     
-    var startingBid: Double {
-        didSet {
-            validateStartingBid()
-        }
-    }
+    var startingBid: Double
     
     var endDateTime: Date {
         didSet {
             validateEndDateTime()
         }
     }
-    var minimumPrice: Double {
+    var minimumPrice: Double
+    
+    var buyOption: String {
         didSet {
-            validateMinimumPrice()
+            validateBuyingOption()
         }
     }
     
-    var buyOption: BuyOption
-    
     var buyNowPrice: Double {
         didSet {
-            
+            validateBuyNowPrice()
         }
     }
     
@@ -110,7 +106,7 @@ class SellItemViewModel {
         }
     }
     
-    init(title: String, description: String, condition: Condition, images: [Data], startingBid: Double, endDateTime: Date, minimumPrice: Double, buyOption: BuyOption, buyNowPrice: Double, viewModelDidUpdateDelegate: ViewModelDidUpdateDelegate) {
+    init(title: String, description: String, condition: String, images: [Data], startingBid: Double, endDateTime: Date, minimumPrice: Double, buyOption: String, buyNowPrice: Double, viewModelDidUpdateDelegate: ViewModelDidUpdateDelegate) {
         self.title = title
         self.description = description
         self.condition = condition
@@ -136,8 +132,10 @@ class SellItemViewModel {
     }
     
     func validateStartingBid() {
-        if (buyOption == BuyOption.AUCTION) {
-            hasStartingBidValidationError =  images.count == 0
+        if (buyOption == BuyOption.AUCTION.type()) {
+            hasStartingBidValidationError =  startingBid < 1.0
+        } else {
+            hasStartingBidValidationError = false
         }
     }
     
@@ -146,14 +144,24 @@ class SellItemViewModel {
     }
     
     func validateMinimumPrice() {
-        if (buyOption == BuyOption.AUCTION) {
-            hasMinimumPriceValidationError = minimumPrice > 0
+        if (buyOption == BuyOption.AUCTION.type()) {
+            hasMinimumPriceValidationError = minimumPrice < 1.0
+        } else {
+            hasMinimumPriceValidationError = false
         }
     }
     
     func validateBuyNowPrice() {
-        if (buyOption == BuyOption.BEST_OFFER || buyOption == BuyOption.BEST_OFFER) {
-            hasBuyNowPriceValidationError = buyNowPrice > 0
+        if (buyOption == BuyOption.BEST_OFFER.type() || buyOption == BuyOption.BEST_OFFER.type()) {
+            hasBuyNowPriceValidationError = buyNowPrice < 1.0
+        } else {
+            hasBuyNowPriceValidationError = false
         }
+    }
+    
+    func validateBuyingOption() {
+        validateMinimumPrice()
+        validateBuyNowPrice()
+        validateStartingBid()
     }
 }

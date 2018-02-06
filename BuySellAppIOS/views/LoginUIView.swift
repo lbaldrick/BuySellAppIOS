@@ -21,7 +21,6 @@ class LoginUIView: UIView, CreateAccountDelegate, LoginDelegate {
     
     var errorLbl: UILabel!
     
-    
     var createAccountDelegate: CreateAccountDelegate?
     var loginDelegate: LoginDelegate?
     

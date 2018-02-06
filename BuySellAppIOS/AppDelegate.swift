@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Initialize the window
@@ -23,16 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         
         // Allocate memory for an instance of the 'MainViewController' class
-        let loginViewController = LoginUIViewController()
-        loginViewController.accountModelController = AccountModelController()
-        
-        let navigationController = UINavigationController(rootViewController: loginViewController)
+
+        let accountModelController = AccountModelController()
+        let navigationController = UINavigationController()
         
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.barTintColor = UIColor(red:0.00, green:0.45, blue:0.74, alpha:1.0)
         navigationController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         
         window?.rootViewController = navigationController
+        
+        let appCoordinator = AppCoordinator(navigationController: navigationController, accountModelController: accountModelController)
+        appCoordinator.start()
         
         // Make the window visible
         window?.makeKeyAndVisible()

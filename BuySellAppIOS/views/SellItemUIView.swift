@@ -8,14 +8,16 @@
 
 import UIKit
 
-class SellItemUIView: UIView {
+class SellItemUIView: UIView, SelectPickerValueDelegate {
     
+    private let titleValidationError = "Item description must be given"
     private let itemDescriptionValidationError = "Item description must be given"
     private let startingBidValidationError = "Starting bid must be greater than 0"
     private let endDateTimeValidationError = "End date must be greater than 1 day from now"
     private let minimumPriceValidationError = "Minimum price must be greater than 0"
     private let buyNowPriceValidationError = "Buy now price must be greater than 0"
     private let error = "Sorry we were unable to create the sell item"
+
     
     var titleLbl: UILabel!
     var itemDescriptionLbl: UILabel!
@@ -24,6 +26,7 @@ class SellItemUIView: UIView {
     var endDateTimeLbl: UILabel!
     var minimumPriceLbl: UILabel!
     var buyNowPriceLbl: UILabel!
+    var buyOptionLbl: UILabel!
 
     var titleTxtField: UITextField!
     var itemDescriptionTxtView: UITextView!
@@ -32,6 +35,7 @@ class SellItemUIView: UIView {
     var endDateTimeDatePicker: UIDatePicker!
     var minimumPriceTxtField: UITextField!
     var buyNowPriceTxtField: UITextField!
+    var buyOptionPickerView: UIPickerView!
     
     var titleValidationLbl: UILabel!
     var itemDescriptionValidationLbl: UILabel!
@@ -46,11 +50,24 @@ class SellItemUIView: UIView {
     var submitBtn: UIButton!
     
     var selectImageDelegate: SelectImageDelegate?
+    var submitSellItemDetailsDelegate: SubmitSellItemDetailsDelegate?
+    
     var imageView: UIImageView!
+    
+    var conditionPickerViewController: PickerView!
+    var buyOptionPickerViewController: PickerView!
+
+    var conditionValue: String?
+    var buyingOptionValue: String?
+    
+    private let conditions = [Condition.NEW.type(), Condition.LIKE_NEW.type(), Condition.GOOD.type(), Condition.ACCEPTABLE.type()]
+    
+    private let buyingOptions = [BuyOption.AUCTION.type(), BuyOption.BEST_OFFER.type(), BuyOption.BUY_NOW.type()]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor(red:0.00, green:0.45, blue:0.74, alpha:1.0)
+        
         createUIComponents()
         setupConstraints()
     }
@@ -60,7 +77,20 @@ class SellItemUIView: UIView {
     }
     
     @objc func onSubmitBtnPressed() {
-    
+        let title = titleTxtField.text ?? ""
+        let description = itemDescriptionTxtView.text ?? ""
+        var images: [Data] = []
+        if (imageView.image) != nil {
+            images = [(UIImagePNGRepresentation(imageView.image!) as Data?)!]
+        }
+       
+        let startingBid = validateStringDoubleValue(textField: startingBidTxtField)
+        
+        let endDateTime = endDateTimeDatePicker.date
+        let minimumPrice = validateStringDoubleValue(textField: minimumPriceTxtField)
+        let buyNowPrice = validateStringDoubleValue(textField: buyNowPriceTxtField)
+        
+        submitSellItemDetailsDelegate?.submitSellItemDetails(title: title, description: description, condition: conditionValue ?? conditions[0], images: images , startingBid: startingBid, endDateTime: endDateTime, minimumPrice: minimumPrice, buyOption: buyingOptionValue ?? buyingOptions[0], buyNowPrice: buyNowPrice)
     }
     
     @objc func onCancelBtnPressed() {
@@ -70,6 +100,14 @@ class SellItemUIView: UIView {
     @objc func onAddImagesBtnPressed() {
         print("add images button pressed")
         selectImageDelegate?.selectImage()
+    }
+    
+    func pickerValueSelected(key: String, value: Any) {
+        if (key == "Condition") {
+            conditionValue = value as? String
+        } else if (key == "BuyingOption") {
+            buyingOptionValue = value as? String
+        }
     }
     
     func createUIComponents() {
@@ -87,6 +125,7 @@ class SellItemUIView: UIView {
         titleValidationLbl.textColor = UIColor.white
         titleValidationLbl.backgroundColor = UIColor.red
         titleValidationLbl.textAlignment = NSTextAlignment.center
+        titleValidationLbl.text = titleValidationError
         titleValidationLbl.isHidden = true
         self.addSubview(titleValidationLbl)
         
@@ -104,6 +143,7 @@ class SellItemUIView: UIView {
         itemDescriptionValidationLbl.textColor = UIColor.white
         itemDescriptionValidationLbl.backgroundColor = UIColor.red
         itemDescriptionValidationLbl.textAlignment = NSTextAlignment.center
+        itemDescriptionValidationLbl.text = itemDescriptionValidationError
         itemDescriptionValidationLbl.isHidden = true
         self.addSubview(itemDescriptionValidationLbl)
         
@@ -113,7 +153,13 @@ class SellItemUIView: UIView {
         
         conditionPickerView = UIPickerView(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
         conditionPickerView.backgroundColor = UIColor.white
-        self.addSubview(conditionPickerView)
+        
+        conditionPickerViewController = PickerView(pickerView: self.conditionPickerView)
+        conditionPickerViewController.datasource = conditions
+        conditionPickerViewController.key = "Condition"
+        conditionPickerViewController.selectPickerValueDelegate = self
+        
+        self.addSubview(conditionPickerViewController.view)
         
         startingBidLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
         startingBidLbl.text = "Starting Bid"
@@ -131,6 +177,7 @@ class SellItemUIView: UIView {
         startingBidValidationLbl.textColor = UIColor.white
         startingBidValidationLbl.backgroundColor = UIColor.red
         startingBidValidationLbl.textAlignment = NSTextAlignment.center
+        startingBidValidationLbl.text = startingBidValidationError
         startingBidValidationLbl.isHidden = true
         self.addSubview(startingBidValidationLbl)
         
@@ -148,8 +195,23 @@ class SellItemUIView: UIView {
         endDateTimeValidationLbl.textColor = UIColor.white
         endDateTimeValidationLbl.backgroundColor = UIColor.red
         endDateTimeValidationLbl.textAlignment = NSTextAlignment.center
+        endDateTimeValidationLbl.text = endDateTimeValidationError
         endDateTimeValidationLbl.isHidden = true
         self.addSubview(endDateTimeValidationLbl)
+        
+        buyOptionLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
+        buyOptionLbl.text = "Buy Option"
+        self.addSubview(buyOptionLbl)
+        
+        buyOptionPickerView = UIPickerView(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
+        buyOptionPickerView.backgroundColor = UIColor.white
+        
+        buyOptionPickerViewController = PickerView(pickerView: self.buyOptionPickerView)
+        buyOptionPickerViewController.datasource = buyingOptions
+        buyOptionPickerViewController.key = "BuyingOption"
+        buyOptionPickerViewController.selectPickerValueDelegate = self
+        
+        self.addSubview(buyOptionPickerViewController.view)
         
         minimumPriceLbl = UILabel(frame:  CGRect(x: 0, y: 0, width: 150, height: 21))
         minimumPriceLbl.text = "Min. Price"
@@ -167,6 +229,7 @@ class SellItemUIView: UIView {
         minimumPriceValidationLbl.textColor = UIColor.white
         minimumPriceValidationLbl.backgroundColor = UIColor.red
         minimumPriceValidationLbl.textAlignment = NSTextAlignment.center
+        minimumPriceValidationLbl.text = minimumPriceValidationError
         minimumPriceValidationLbl.isHidden = true
         self.addSubview(minimumPriceValidationLbl)
         
@@ -186,6 +249,7 @@ class SellItemUIView: UIView {
         buyNowPriceValidationLbl.textColor = UIColor.white
         buyNowPriceValidationLbl.backgroundColor = UIColor.red
         buyNowPriceValidationLbl.textAlignment = NSTextAlignment.center
+        buyNowPriceValidationLbl.text = buyNowPriceValidationError
         buyNowPriceValidationLbl.isHidden = true
         self.addSubview(buyNowPriceValidationLbl)
         
@@ -219,6 +283,7 @@ class SellItemUIView: UIView {
         errorLbl.textColor = UIColor.white
         errorLbl.backgroundColor = UIColor.red
         errorLbl.textAlignment = NSTextAlignment.center
+        errorLbl.text = error
         errorLbl.isHidden = true
         self.addSubview(errorLbl)
     }
@@ -243,14 +308,14 @@ class SellItemUIView: UIView {
         self.titleValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         
         self.itemDescriptionLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.itemDescriptionLbl.topAnchor.constraint(equalTo: self.titleTxtField.topAnchor, constant: 35).isActive = true
+        self.itemDescriptionLbl.topAnchor.constraint(equalTo: self.titleTxtField.topAnchor, constant: 40).isActive = true
         self.itemDescriptionLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         self.itemDescriptionLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.itemDescriptionLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         self.itemDescriptionTxtView.translatesAutoresizingMaskIntoConstraints = false
         self.itemDescriptionTxtView.leftAnchor.constraint(equalTo: self.itemDescriptionLbl.rightAnchor, constant: 1).isActive = true
-        self.itemDescriptionTxtView.topAnchor.constraint(equalTo: self.titleTxtField.bottomAnchor, constant: 10).isActive = true
+        self.itemDescriptionTxtView.topAnchor.constraint(equalTo: self.titleTxtField.bottomAnchor, constant: 20).isActive = true
         self.itemDescriptionTxtView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         self.itemDescriptionTxtView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
@@ -261,43 +326,25 @@ class SellItemUIView: UIView {
         self.itemDescriptionValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         
         self.conditionLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.conditionLbl.topAnchor.constraint(equalTo: self.itemDescriptionTxtView.bottomAnchor, constant: 35).isActive = true
+        self.conditionLbl.topAnchor.constraint(equalTo: self.itemDescriptionTxtView.bottomAnchor, constant: 20).isActive = true
         self.conditionLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         self.conditionLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.conditionLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         self.conditionPickerView.translatesAutoresizingMaskIntoConstraints = false
         self.conditionPickerView.leftAnchor.constraint(equalTo: self.conditionLbl.rightAnchor, constant: 1).isActive = true
-        self.conditionPickerView.topAnchor.constraint(equalTo: self.itemDescriptionTxtView.bottomAnchor, constant: 10).isActive = true
-        self.conditionPickerView.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.conditionPickerView.topAnchor.constraint(equalTo: self.itemDescriptionTxtView.bottomAnchor, constant: 20).isActive = true
+        self.conditionPickerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         self.conditionPickerView.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
-        self.startingBidLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.startingBidLbl.topAnchor.constraint(equalTo: self.conditionPickerView.topAnchor, constant: 35).isActive = true
-        self.startingBidLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
-        self.startingBidLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        self.startingBidLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        self.startingBidTxtField.translatesAutoresizingMaskIntoConstraints = false
-        self.startingBidTxtField.leftAnchor.constraint(equalTo: self.startingBidLbl.rightAnchor, constant: 1).isActive = true
-        self.startingBidTxtField.topAnchor.constraint(equalTo: self.conditionPickerView.bottomAnchor, constant: 10).isActive = true
-        self.startingBidTxtField.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        self.startingBidTxtField.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        self.startingBidValidationLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.startingBidValidationLbl.topAnchor.constraint(equalTo: startingBidTxtField.bottomAnchor, constant: 2).isActive = true
-        self.startingBidValidationLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
-        self.startingBidValidationLbl.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        self.startingBidValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
-        
         self.endDateTimeLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.endDateTimeLbl.topAnchor.constraint(equalTo: self.startingBidTxtField.topAnchor, constant: 35).isActive = true
+        self.endDateTimeLbl.topAnchor.constraint(equalTo: self.conditionPickerView.bottomAnchor, constant: 10).isActive = true
         self.endDateTimeLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         self.endDateTimeLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.endDateTimeLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         self.endDateTimeDatePicker.translatesAutoresizingMaskIntoConstraints = false
-        self.endDateTimeDatePicker.topAnchor.constraint(equalTo: self.endDateTimeLbl.bottomAnchor, constant: 15).isActive = true
+        self.endDateTimeDatePicker.topAnchor.constraint(equalTo: self.endDateTimeLbl.bottomAnchor, constant: 5).isActive = true
         self.endDateTimeDatePicker.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
         self.endDateTimeDatePicker.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         self.endDateTimeDatePicker.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -308,15 +355,27 @@ class SellItemUIView: UIView {
         self.endDateTimeValidationLbl.heightAnchor.constraint(equalToConstant: 15).isActive = true
         self.endDateTimeValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         
+        self.buyOptionLbl.translatesAutoresizingMaskIntoConstraints = false
+        self.buyOptionLbl.topAnchor.constraint(equalTo: self.endDateTimeDatePicker.bottomAnchor, constant: 20).isActive = true
+        self.buyOptionLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        self.buyOptionLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.buyOptionLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        self.buyOptionPickerView.translatesAutoresizingMaskIntoConstraints = false
+        self.buyOptionPickerView.leftAnchor.constraint(equalTo: self.buyOptionLbl.rightAnchor, constant: 1).isActive = true
+        self.buyOptionPickerView.topAnchor.constraint(equalTo: self.endDateTimeDatePicker.bottomAnchor, constant: 20).isActive = true
+        self.buyOptionPickerView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        self.buyOptionPickerView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
         self.minimumPriceLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.minimumPriceLbl.topAnchor.constraint(equalTo: self.endDateTimeDatePicker.bottomAnchor, constant: 35).isActive = true
+        self.minimumPriceLbl.topAnchor.constraint(equalTo: self.buyOptionPickerView.bottomAnchor, constant: 15).isActive = true
         self.minimumPriceLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         self.minimumPriceLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.minimumPriceLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         self.minimumPriceTxtField.translatesAutoresizingMaskIntoConstraints = false
         self.minimumPriceTxtField.leftAnchor.constraint(equalTo: self.minimumPriceLbl.rightAnchor, constant: 1).isActive = true
-        self.minimumPriceTxtField.topAnchor.constraint(equalTo: self.endDateTimeDatePicker.bottomAnchor, constant: 35).isActive = true
+        self.minimumPriceTxtField.topAnchor.constraint(equalTo: self.buyOptionPickerView.bottomAnchor, constant: 15).isActive = true
         self.minimumPriceTxtField.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.minimumPriceTxtField.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
@@ -327,14 +386,14 @@ class SellItemUIView: UIView {
         self.minimumPriceValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         
         self.buyNowPriceLbl.translatesAutoresizingMaskIntoConstraints = false
-        self.buyNowPriceLbl.topAnchor.constraint(equalTo: self.minimumPriceTxtField.bottomAnchor, constant: 35).isActive = true
+        self.buyNowPriceLbl.topAnchor.constraint(equalTo: self.minimumPriceTxtField.bottomAnchor, constant: 15).isActive = true
         self.buyNowPriceLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         self.buyNowPriceLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.buyNowPriceLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
         self.buyNowPriceTxtField.translatesAutoresizingMaskIntoConstraints = false
         self.buyNowPriceTxtField.leftAnchor.constraint(equalTo: self.buyNowPriceLbl.rightAnchor, constant: 1).isActive = true
-        self.buyNowPriceTxtField.topAnchor.constraint(equalTo: self.minimumPriceTxtField.bottomAnchor, constant: 35).isActive = true
+        self.buyNowPriceTxtField.topAnchor.constraint(equalTo: self.minimumPriceTxtField.bottomAnchor, constant: 15).isActive = true
         self.buyNowPriceTxtField.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.buyNowPriceTxtField.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
@@ -344,30 +403,59 @@ class SellItemUIView: UIView {
         self.buyNowPriceValidationLbl.heightAnchor.constraint(equalToConstant: 15).isActive = true
         self.buyNowPriceValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
         
+        self.startingBidLbl.translatesAutoresizingMaskIntoConstraints = false
+        self.startingBidLbl.topAnchor.constraint(equalTo: self.buyNowPriceTxtField.bottomAnchor, constant: 15).isActive = true
+        self.startingBidLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
+        self.startingBidLbl.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.startingBidLbl.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
+        self.startingBidTxtField.translatesAutoresizingMaskIntoConstraints = false
+        self.startingBidTxtField.leftAnchor.constraint(equalTo: self.startingBidLbl.rightAnchor, constant: 1).isActive = true
+        self.startingBidTxtField.topAnchor.constraint(equalTo: self.buyNowPriceTxtField.bottomAnchor, constant: 15).isActive = true
+        self.startingBidTxtField.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.startingBidTxtField.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        
+        self.startingBidValidationLbl.translatesAutoresizingMaskIntoConstraints = false
+        self.startingBidValidationLbl.topAnchor.constraint(equalTo: startingBidTxtField.bottomAnchor, constant: 2).isActive = true
+        self.startingBidValidationLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
+        self.startingBidValidationLbl.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        self.startingBidValidationLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
+        
         self.addImagesBtn.translatesAutoresizingMaskIntoConstraints = false
-        self.addImagesBtn.topAnchor.constraint(equalTo: buyNowPriceTxtField.bottomAnchor, constant: 15).isActive = true
+        self.addImagesBtn.topAnchor.constraint(equalTo: startingBidTxtField.bottomAnchor, constant:10).isActive = true
         self.addImagesBtn.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
         self.addImagesBtn.widthAnchor.constraint(equalToConstant: 100).isActive = true
         self.addImagesBtn.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
         self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView.topAnchor.constraint(equalTo: buyNowPriceTxtField.bottomAnchor, constant: 5).isActive = true
+        self.imageView.topAnchor.constraint(equalTo: startingBidTxtField.bottomAnchor, constant: 5).isActive = true
         self.imageView.leftAnchor.constraint(equalTo: addImagesBtn.rightAnchor, constant: 5).isActive = true
         self.imageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         self.imageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
         
         self.submitBtn.translatesAutoresizingMaskIntoConstraints = false
-        self.submitBtn.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25).isActive = true
+        self.submitBtn.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         self.submitBtn.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 80).isActive = true
         
         self.cancelBtn.translatesAutoresizingMaskIntoConstraints = false
-        self.cancelBtn.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25).isActive = true
+        self.cancelBtn.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
         self.cancelBtn.leftAnchor.constraint(equalTo: self.submitBtn.rightAnchor, constant: 100).isActive = true
         
         self.errorLbl.translatesAutoresizingMaskIntoConstraints = false
         self.errorLbl.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
         self.errorLbl.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
         self.errorLbl.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15).isActive = true
+    }
+    
+    private func validateStringDoubleValue(textField: UITextField) -> Double {
+        var result: Double = 0.0
+        
+        if (textField.text != nil && textField.text != "")  {
+            result = Double(textField.text!)!
+        }
+        
+        return result
+        
     }
 
 }

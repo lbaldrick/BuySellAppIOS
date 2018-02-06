@@ -11,7 +11,7 @@ import UIKit
 class BrowseUIViewController: UIViewController, OpenBuyItemDetails {
     
     var browseItemTableViewController: BrowseItemTableViewController!
-    var accountModelController: AccountModelController!
+    var delegate: BrowseUIViewControllerDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +28,7 @@ class BrowseUIViewController: UIViewController, OpenBuyItemDetails {
     
 
     func openBuyItemDetails(buyItem: BuyItem) {
-        let buyNowUIViewController = BuyNowUIViewController()
-        buyNowUIViewController.buyItem = buyItem
-        print("Opening buy now view controller")
-        
-        navigationController?.pushViewController(buyNowUIViewController , animated: false)
+        delegate.openBuyItemDetails(buyItem: buyItem)
     }
     
     override func viewWillAppear(_ animated: Bool) {

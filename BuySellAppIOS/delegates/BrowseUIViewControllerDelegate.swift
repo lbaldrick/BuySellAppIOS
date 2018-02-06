@@ -1,5 +1,5 @@
 //
-//  CreateAccountDelegate.swift
+//  BrowseUIViewControllerDelegate.swift
 //  BuySellAppIOS
 //
 //  Created by Michael Lee Baldrick on 06/02/2018.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol CreateAccountDelegate {
-    func createAccount()
+
+protocol BrowseUIViewControllerDelegate {
+     func openBuyItemDetails(buyItem: BuyItem)
 }

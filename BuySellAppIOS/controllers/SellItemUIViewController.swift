@@ -8,18 +8,24 @@
 
 import UIKit
 
-class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SelectImageDelegate {
+class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SelectImageDelegate, SubmitSellItemDetailsDelegate {
     
+
     var sellView: SellItemUIView!
     var accountModelController: AccountModelController!
     let picker = UIImagePickerController()
+    var viewModel: SellItemViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sellView = SellItemUIView(frame: CGRect.zero)
         sellView.selectImageDelegate = self
+        sellView.submitSellItemDetailsDelegate = self
+    
         self.view.addSubview(sellView)
         picker.delegate = self
+        
+        viewModel = SellItemViewModel(title: "", description: "", condition: "", images: [], startingBid: 0, endDateTime: Date(), minimumPrice: 0, buyOption: "", buyNowPrice: 0, viewModelDidUpdateDelegate: self)
         setupConstraints()
     }
 
@@ -35,7 +41,6 @@ class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UI
         sellView.leftAnchor.constraint(equalTo: margins.leftAnchor).isActive  = true
         sellView.rightAnchor.constraint(equalTo: margins.rightAnchor).isActive  = true
         sellView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -15).isActive = true
-
     }
     
     func viewModelDidUpdate(key: String, value: Any) {
@@ -80,6 +85,7 @@ class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UI
     }
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        print("Image picker selected")
         if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage  {
             sellView.imageView.contentMode = .scaleAspectFit
             sellView.imageView.image = chosenImage
@@ -87,4 +93,25 @@ class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UI
     
         dismiss(animated:true, completion: nil)
     }
+    
+    func setViewModelProperties(title: String, description: String, condition: String, images: [Data], startingBid: Double, endDateTime: Date, minimumPrice: Double, buyOption: String, buyNowPrice: Double) {
+        viewModel.title = title
+        viewModel.description = description
+        viewModel.condition = condition
+        viewModel.images = images
+        viewModel.startingBid = startingBid
+        viewModel.endDateTime = endDateTime
+        viewModel.minimumPrice = minimumPrice
+        viewModel.buyOption = buyOption
+        viewModel.buyNowPrice = buyNowPrice
+    }
+    
+    func submitSellItemDetails(title: String, description: String, condition: String, images: [Data], startingBid: Double, endDateTime: Date, minimumPrice: Double, buyOption: String, buyNowPrice: Double) {
+        setViewModelProperties(title: title, description: description, condition: condition, images: images, startingBid: startingBid, endDateTime: endDateTime, minimumPrice: minimumPrice, buyOption: buyOption, buyNowPrice: buyNowPrice)
+    }
+    
+    func updateInitialState(accountModelController: AccountModelController) {
+        self.accountModelController = accountModelController
+    }
+
 }

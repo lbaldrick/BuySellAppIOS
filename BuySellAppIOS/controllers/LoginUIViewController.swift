@@ -13,10 +13,9 @@ class LoginUIViewController: UIViewController, CreateAccountDelegate, LoginDeleg
     var accountModelController: AccountModelController!
     var loginViewModel: LoginViewModel!
     var loginView: LoginUIView!
+    var delegate: LoginUIViewControllerDelegate!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    func initialize() {
         loginView = LoginUIView(frame: CGRect.zero)
         loginView.createAccountDelegate = self
         loginView.loginDelegate = self
@@ -26,15 +25,7 @@ class LoginUIViewController: UIViewController, CreateAccountDelegate, LoginDeleg
         self.loginView.errorLbl.text = self.loginViewModel.error
         self.view.addSubview(loginView)
         self.title = "Login"
-        
-        
         setupConstraints()
-    
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func setupConstraints() {
@@ -47,36 +38,16 @@ class LoginUIViewController: UIViewController, CreateAccountDelegate, LoginDeleg
         loginView.heightAnchor.constraint(equalToConstant: 400).isActive = true
     }
     
+    
     func createAccount() {
-        let createAccountController = CreateAccountUIViewController()
-        createAccountController.accountModelController = self.accountModelController
-        navigationController?.pushViewController(createAccountController , animated: false)
+        delegate.createNewAccountSelected()
     }
     
     func login() {
-        //TODO - Added ONLY FOR DEV PURPOSES REMOVE!!
-        if (loginView.usernameTxtField.text == "" && loginView.passwordTxtField.text == "") {
-            let buySellTabBarController = BuySellTabBarController()
-            buySellTabBarController.accountModelController = self.accountModelController
-            self.navigationController?.pushViewController(buySellTabBarController , animated: false)
-            return
-        }
-        
-        
-        self.accountModelController.getAccountDetails(username: loginView.usernameTxtField.text!, password: loginView.passwordTxtField.text!) {
-            (accountDetails) in
-                guard let username = accountDetails?.username else {
-                    self.loginViewModel.showError = true
-                    return
-                }
-    
-                self.loginViewModel.username = username
-                self.loginViewModel.showError = false
-            
-                let buySellTabBarController = BuySellTabBarController()
-                buySellTabBarController.accountModelController = self.accountModelController
-                self.navigationController?.pushViewController(buySellTabBarController , animated: false)
-        }
+        delegate.attemptedLogin(username: self.loginView.usernameTxtField.text!, password: self.loginView.passwordTxtField.text!, failureHandler: {
+            (count) in
+                print("login attempt failed \(count) times")
+        })
     }
     
     func viewModelDidUpdate(key: String, value: Any) {

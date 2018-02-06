@@ -9,28 +9,24 @@
 import UIKit
 
 class CreateAccountUIViewController: UIViewController, SubmitAccountDetailsDelegate, ViewModelDidUpdateDelegate {
-    private let CONTROLLER_TITLE = "Create Account"
-    private var createAccountView: CreateAccountUIView!
-    var accountModelController: AccountModelController!
-    private var viewModel: CreateAccountViewModel!
+
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    private var createAccountView: CreateAccountUIView!
+    private var viewModel: CreateAccountViewModel!
+    var delegate: LoginUIViewControllerDelegate!
+    
+    func initialize() {
         createAccountView = CreateAccountUIView(frame: CGRect.zero)
         createAccountView.delegate = self
         
-        self.view.addSubview(createAccountView)
-        self.title = CONTROLLER_TITLE
-        
         self.viewModel = CreateAccountViewModel(firstName: "", lastName: "", dateOfBirth: Date(), email: "", username: "", password: "", confPassword: "", viewModelDidUpdateDelegate: self)
         
+        self.view.addSubview(createAccountView)
+        self.title = "Create Account"
+
         setupConstraints()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
     
     func setupConstraints() {
         let margins = view.layoutMarginsGuide
@@ -45,16 +41,21 @@ class CreateAccountUIViewController: UIViewController, SubmitAccountDetailsDeleg
     func submitAccountDetails(firstName: String, lastName: String, username: String, password: String, confPassword: String, dateOfBirth: Date, email: String) {
         setViewModelProperties(firstName: firstName, lastName: lastName, username: username, password: password, confPassword: confPassword, dateOfBirth: dateOfBirth, email: email)
         if (!viewModel.hasValidationError) {
-            accountModelController.createAccountDetails(firstName: firstName, lastName: lastName, username: username, password: password, confPassword: confPassword, dateOfBirth: dateOfBirth, email: email) {
-                (accountDetails) in
-                if (accountDetails != nil) {
-                    print("Account creation successful")
-                } else {
-                    print("Account creation failed")
-                }
+            delegate.attemptedCreateAccount(firstName: firstName, lastName: lastName, username: username, password: password, confPassword: confPassword, dateOfBirth: dateOfBirth, email: email) {
+                () in
+                print("failed to create account")
             }
         }
-        
+    }
+    
+    func setViewModelProperties(firstName: String, lastName: String, username: String, password: String, confPassword: String, dateOfBirth: Date, email: String) {
+        viewModel.firstName = firstName
+        viewModel.lastName = lastName
+        viewModel.username = username
+        viewModel.password = password
+        viewModel.confPassword = confPassword
+        viewModel.dateOfBirth = dateOfBirth
+        viewModel.email = email
     }
     
     func viewModelDidUpdate(key: String, value: Any) {
@@ -79,16 +80,7 @@ class CreateAccountUIViewController: UIViewController, SubmitAccountDetailsDeleg
             default:
                 print("No action required")
         }
+    
     }
     
-    func setViewModelProperties(firstName: String, lastName: String, username: String, password: String, confPassword: String, dateOfBirth: Date, email: String) {
-        viewModel.firstName = firstName
-        viewModel.lastName = lastName
-        viewModel.username = username
-        viewModel.password = password
-        viewModel.confPassword = confPassword
-        viewModel.dateOfBirth = dateOfBirth
-        viewModel.email = email
-    }
-
 }

@@ -53,7 +53,6 @@ class BrowseItemTableViewCell: UITableViewCell {
         buyingOptionLbl.translatesAutoresizingMaskIntoConstraints = false
         itemDescriptionLbl.translatesAutoresizingMaskIntoConstraints = false
         itemImageView.translatesAutoresizingMaskIntoConstraints = false
-        //addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": titleLbl]))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,7 +62,7 @@ class BrowseItemTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if (selected == true) {
-            print("buy itme selected")
+            print("buy item selected")
             delegate?.openBuyItemDetails(buyItem: BuyItem(id: "id", sellerUsername: "joeBloggs", title: "NBA Jam Snes", description: "Tested and works fine. Message me for more details. Check out my other items", condition: Condition.ACCEPTABLE, images: [], currentBid: 0.0, endDateTime: Date(), minimumPrice: 22.00, buyOption: BuyOption.BUY_NOW))
         }
     }
