@@ -11,10 +11,12 @@ import UIKit
 class BrowseItemTableViewController: UITableViewController {
     
     var delegate: OpenBuyItemDetails?
+    var datasource: BrowseItems!
  
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.tableView.register(BrowseItemTableViewCell.self, forCellReuseIdentifier: "itemId")
+
+        self.tableView.register(BrowseItemTableViewCell.self, forCellReuseIdentifier: "itemId")
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +28,7 @@ class BrowseItemTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return datasource.count
     }
 
    
@@ -40,7 +42,14 @@ class BrowseItemTableViewController: UITableViewController {
         self.tableView.rowHeight = 200
         cell.delegate = delegate
         
+        let data = datasource.items[indexPath.row]
+        
+        let viewModel = BrowseItemTableCellViewModel(itemId: data.id, itemImage: data.images[0], title: data.title, condition: data.condition, buyOption: data.buyOption, itemDescription: data.description, price: data.minimumPrice)
+        
+        cell.addData(itemId: viewModel.itemId, itemImage: viewModel.itemImage, title: viewModel.title, condition: viewModel.condition, buyOption: viewModel.buyOption , itemDescription: viewModel.itemDescription, price: String(viewModel.price))
+        
         return cell
-    }    
+    }
+    
 
 }

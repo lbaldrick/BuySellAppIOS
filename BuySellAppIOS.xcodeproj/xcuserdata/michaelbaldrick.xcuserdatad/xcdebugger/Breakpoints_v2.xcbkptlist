@@ -313,7 +313,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/controllers/SellItemUIViewController.swift"
-            timestampString = "539193264.931999"
+            timestampString = "539723946.275691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
@@ -329,7 +329,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/controllers/SellItemUIViewController.swift"
-            timestampString = "539193264.932055"
+            timestampString = "539723946.275739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
@@ -377,7 +377,7 @@
                   moduleName = "BuySellAppIOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michaelbaldrick/Dev/Git/BuySellAppIOS/BuySellAppIOS/views/SellItemUIView.swift"
-                  timestampString = "539192364.4503289"
+                  timestampString = "539720227.5470001"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -392,7 +392,7 @@
                   moduleName = "BuySellAppIOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michaelbaldrick/Dev/Git/BuySellAppIOS/BuySellAppIOS/views/SellItemUIView.swift"
-                  timestampString = "539192364.452534"
+                  timestampString = "539720227.548619"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -407,7 +407,7 @@
                   moduleName = "BuySellAppIOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/michaelbaldrick/Dev/Git/BuySellAppIOS/BuySellAppIOS/views/SellItemUIView.swift"
-                  timestampString = "539192364.454332"
+                  timestampString = "539720227.5502239"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "93"
@@ -500,11 +500,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BuySellAppIOS/controllers/SellItemUIViewController.swift"
-            timestampString = "539193264.932183"
+            timestampString = "539723946.275878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -542,6 +542,38 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuySellAppIOS/modelcontrollers/BrowseItemsModelController.swift"
+            timestampString = "539730060.081344"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getImage(imageId:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BuySellAppIOS/modelcontrollers/BrowseItemsModelController.swift"
+            timestampString = "539730060.081398"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getImage(imageId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -38,7 +38,7 @@ class BuyItemUIView: UIView {
         setupConstraints()
     }
     
-    func updateUIWithData(sellerUsername: String, title: String, description: String, condition: String, buyingOption: String, endDateTime: Date, minimumPrice: Double) {
+    func updateUIWithData(sellerUsername: String, title: String, description: String, condition: String, buyingOption: String, endDateTime: Date, minimumPrice: Double, itemImage: Data) {
         sellerUsernameValueLbl.text = sellerUsername
         titleValueLbl.text = title
         itemDescriptionValueLbl.text = description
@@ -46,6 +46,7 @@ class BuyItemUIView: UIView {
         buyingOptionValueLbl.text = buyingOption
         endDateTimeValueLbl.text = description
         priceValueLbl.text = String(describing: minimumPrice)
+        self.imageView.image = UIImage(data: itemImage)
     }
     
     func createUIComponents() {

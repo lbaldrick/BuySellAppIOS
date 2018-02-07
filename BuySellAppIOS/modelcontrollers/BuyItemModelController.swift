@@ -11,7 +11,6 @@ import Foundation
 
 class BuyItemModelController {
     var accountModelController: AccountModelController
-    var buyItem: BuyItem!
     
     init(accountModelController: AccountModelController) {
         self.accountModelController = accountModelController

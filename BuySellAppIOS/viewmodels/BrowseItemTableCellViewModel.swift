@@ -16,13 +16,15 @@ class BrowseItemTableCellViewModel {
     var condition: String
     var buyOption: String
     var itemDescription: String
+    var price: Double 
 
-    init(itemId: String, itemImage: Data, title: String, condition: Condition, buyOption: BuyOption, itemDescription: String) {
+    init(itemId: String, itemImage: Data, title: String, condition: Condition, buyOption: BuyOption, itemDescription: String, price: Double) {
         self.itemId = itemId
         self.itemImage = itemImage
         self.title = title
         self.condition = condition.type()
         self.buyOption = buyOption.type()
         self.itemDescription = itemDescription
+        self.price = price
     }
 }

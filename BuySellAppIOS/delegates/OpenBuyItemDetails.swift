@@ -10,5 +10,5 @@ import Foundation
 
 
 protocol OpenBuyItemDetails {
-    func openBuyItemDetails(buyItem: BuyItem)
+    func openBuyItemDetails(id: String)
 }

@@ -109,9 +109,5 @@ class SellItemUIViewController: UIViewController, ViewModelDidUpdateDelegate, UI
     func submitSellItemDetails(title: String, description: String, condition: String, images: [Data], startingBid: Double, endDateTime: Date, minimumPrice: Double, buyOption: String, buyNowPrice: Double) {
         setViewModelProperties(title: title, description: description, condition: condition, images: images, startingBid: startingBid, endDateTime: endDateTime, minimumPrice: minimumPrice, buyOption: buyOption, buyNowPrice: buyNowPrice)
     }
-    
-    func updateInitialState(accountModelController: AccountModelController) {
-        self.accountModelController = accountModelController
-    }
 
 }

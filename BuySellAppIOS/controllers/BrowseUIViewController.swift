@@ -13,22 +13,8 @@ class BrowseUIViewController: UIViewController, OpenBuyItemDetails {
     var browseItemTableViewController: BrowseItemTableViewController!
     var delegate: BrowseUIViewControllerDelegate!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        browseItemTableViewController = BrowseItemTableViewController()
-        browseItemTableViewController.delegate = self
-        browseItemTableViewController.title = "Browse Items"
-        view.addSubview(browseItemTableViewController.view)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    func openBuyItemDetails(buyItem: BuyItem) {
-        delegate.openBuyItemDetails(buyItem: buyItem)
+    func openBuyItemDetails(id: String) {
+        delegate.openBuyItemDetails(id: id)
     }
     
     override func viewWillAppear(_ animated: Bool) {

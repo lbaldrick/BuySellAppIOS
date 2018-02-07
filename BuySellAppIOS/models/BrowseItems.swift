@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+struct BrowseItems {
+    let items: [BrowseItem]
+    var count:Int {
+        get {
+            return items.count
+        }
+    }
+    
+    init(items: [BrowseItem]) {
+        self.items = items
+    }
+}
